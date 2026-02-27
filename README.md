@@ -43,3 +43,4 @@ Follow this project board to know the latest status of the project:[https://gith
 4. `cd exploring-national-parks `(the lowercase one)
 5. `npm install` will install the necessary packages 
 6. `npm start` will open the app in a new tab with a localhost server
+
