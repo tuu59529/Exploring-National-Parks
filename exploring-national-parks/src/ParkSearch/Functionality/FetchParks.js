@@ -12,6 +12,8 @@
  * @returns {Array} List of parks that satisfy user activity and state requirements
  * @throws {Error} In case of error in API fetching or in other logic
  */
+import config from "../../config";
+
 export const FetchParks = async (activityArray, selectedStates) => {
     let json = [];
     let activityReturnJson = [];
@@ -34,7 +36,7 @@ export const FetchParks = async (activityArray, selectedStates) => {
         if(hasActivities){
             console.log("has activities");
             // find parks with all activities
-            const url =  `https://developer.nps.gov/api/v1/activities/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&id=&q=${encodedValuesString}`
+            const url =  `${config.npsBaseUrl}/activities/parks?api_key=${config.npsApiKey}&id=&q=${encodedValuesString}`
             // console.log("url :" + url);
             const response = await fetch(url);
             if (!response.ok) {
@@ -71,7 +73,7 @@ export const FetchParks = async (activityArray, selectedStates) => {
     
             //console.log("Park Values: " + encodedParksString);
             
-            const parkUrl =  `https://developer.nps.gov/api/v1/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&parkCode=${parksString}`
+            const parkUrl = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&parkCode=${parksString}`;
             // console.log("Park url :" + parkUrl);
             const parkResponse = await fetch(parkUrl);
             if (!parkResponse.ok) {
@@ -93,7 +95,7 @@ export const FetchParks = async (activityArray, selectedStates) => {
             // find parks with all activities
             const statesString =  selectedStates.map(state => state.value).join(',');
             console.log("statesString: " + statesString);
-            const url =  `https://developer.nps.gov/api/v1/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&stateCode=${statesString}`
+            const url = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&stateCode=${statesString}`;
             // console.log("url :" + url);
             const response = await fetch(url);
             if (!response.ok) {

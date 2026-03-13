@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import defaultImage from '../../../src/parkImg-default.png';
+import config from '../../config';
 
 /**
  * Renders a gallery of highlighted parks.
@@ -17,7 +18,8 @@ const HighlightGallery = () => {
   useEffect(() => {
     async function fetchParks() {
       try {
-        const url = `https://developer.nps.gov/api/v1/parks?api_key=Y7kFnm6SP5SMQhkTvwUSgyjge9buj4DbjrkuV2S0&limit=471`;
+        // Builds the highlighted parks request URL from environment values.
+        const url = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&limit=471`;
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Unable to fetch parks');

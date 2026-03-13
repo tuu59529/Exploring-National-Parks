@@ -8,6 +8,8 @@
  * @returns {Object} - Object that contains a list of forcasts for the given park
  * @throws {Error} - If the network response is not ok or an error occurs during the fetch.
  */
+import config from '../../config';
+
 export const FetchForecast = async (parkCode) => {
     if(!parkCode){
        return;
@@ -18,7 +20,8 @@ export const FetchForecast = async (parkCode) => {
         // const response = await fetch(proxyUrl + targetUrl);
        // const latLong = await getLatLong(19104); //waits for return value from getLatLong
     
-        const url = `https://api.weather.gov/points/${parkCode.latitude},${parkCode.longitude}`;
+        // Builds the weather points request URL from environment values.
+        const url = `${config.weatherBaseUrl}/points/${parkCode.latitude},${parkCode.longitude}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Network response was not ok');

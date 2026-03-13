@@ -8,10 +8,12 @@
  * @param {Object} parkCode - The park code object containing latitude and longitude.
  * @returns {Array} - An array of weather alerts.
  */
+import config from '../../config';
+
 export const FetchWeatherAlerts = async (parkCode) => {
     try {
 
-        const alertResponse = await fetch(`https://api.weather.gov/alerts?point=${parkCode.latitude}%2C${parkCode.longitude}&limit=500`);
+        const alertResponse = await fetch(`${config.weatherApiUrl}/alerts?point=${parkCode.latitude}%2C${parkCode.longitude}&limit=500`);
         const alertData = await alertResponse.json();
         let alerts = [];
         if (alertData.features && alertData.features.length > 0) {

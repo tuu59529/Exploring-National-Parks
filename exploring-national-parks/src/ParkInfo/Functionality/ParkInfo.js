@@ -12,6 +12,7 @@
  * @throws {Error} - If the network response is not successful or an error occurs during the process.
  */
 // ParkInfo.js, fetch the list of parks and return info
+import config from '../../config';
 
 export const ParkInfo = async (parkCode, page) => {
   try {
@@ -21,7 +22,8 @@ export const ParkInfo = async (parkCode, page) => {
     if (cachedData) {
       return JSON.parse(cachedData);
     }
-    var url = 'https://developer.nps.gov/api/v1/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&parkCode=' + parkCode + '&start=' + page;
+    // Builds the park info request URL from environment values.
+    var url = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&parkCode=${parkCode}&start=${page}`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error('Network response was not ok');
