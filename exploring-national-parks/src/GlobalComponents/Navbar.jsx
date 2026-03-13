@@ -11,7 +11,7 @@ import '../Style/navbar.css'
 import tree from './tree.png'
 const Navbar = () => {
     return (
-        <nav className="nav-bar">
+        <nav className="nav-bar" aria-label="Main navigation">
             <ul>
                 <li className = "header">
                     <NavLink to="/">Exploring National Parks</NavLink>

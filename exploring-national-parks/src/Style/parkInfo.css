@@ -1,157 +1,259 @@
-/* Responds to the ParkInfo.jsx component */
-.park-info-parent{
-    margin-top: 5.5rem;
+/* =============================================
+   PARK INFO — Modern Cards & Detail View
+   ============================================= */
+
+.park-info-parent {
+    margin-top: 5rem;
 }
 
-.park-info-button{
-    width: 50%;
-    font-size: 1.5rem;
-    margin: auto;
-    border-radius: 15px;
+/* Shared button style */
+.park-info-button {
+    width: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    margin: 4px;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
 }
 
 .park-info-button:hover {
-    background: white;
-    font-weight: bold;
-    cursor: pointer;
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-a:hover{
-    text-decoration: underline;
+a:hover {
+    text-decoration: none;
+    color: var(--color-accent);
 }
 
-img{
+img {
     width: 100%;
 }
 
-.parkInfo{
+/* ---- Browsing all parks ---- */
+.top-padding-info {
+    padding-top: 1rem;
+}
+
+.all-parks-info-welcome {
+    position: relative;
+    padding: 3rem 2rem;
+    background-color: var(--color-light-overlay);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    text-align: center;
+}
+
+.all-parks-info-welcome #park-info-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.all-parks-info-welcome h2 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--color-gray-600);
+    font-size: 1.1rem;
+}
+
+/* Parks list (multiple parks) */
+.parkInfo {
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    /*opacity: 0.85;*/
     background-color: rgba(0, 0, 0, 0.5);
-    /* margin-top: 2.5rem; */
 }
 
-.park-info-welcome {
-    position:relative;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 100%, rgba(255,255,255,1) 0%);
-}
-
-.park-info-welcome #park-info-title {
-    position: relative;
-    padding: 5rem;
-    color: black;
-    text-align: center;
-}
-
-.park-info-welcome #info-title{
-    position: relative;
-    padding-top: 5rem;
-    color: black;
-    font-size: 4rem;
-}
-
-.box-1{
+.parkInfo .parks {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    width: 80%;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1.5rem;
+    border: none;
 }
 
-.hours{
-    width: 40%;
-    margin: 2rem;
-    padding: 0.5rem;
+.parkInfo .post-card {
+    text-align: center;
+    margin: 0;
+    background-color: var(--color-white);
+    width: 30%;
+    min-width: 280px;
+    border: none;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.parkInfo .post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.parkInfo .post-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.learn-more-name {
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+}
+
+.park-info-link:link,
+.park-info-link:visited {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+.parkInfo .description,
+.park-search .description {
+    text-align: center;
+    padding: 12px 16px 20px;
+    font-size: 0.9rem;
+    color: var(--color-gray-600);
+    line-height: 1.6;
+}
+
+/* ---- Single park detail ---- */
+.park-info-welcome {
+    position: relative;
+    background-color: var(--color-light-overlay);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 2rem;
+}
+
+.park-info-welcome #info-title {
+    position: relative;
+    padding-top: 4rem;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+}
+
+.park-info-welcome h2 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--color-gray-600);
+}
+
+.park-info-welcome address {
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--color-gray-600);
+}
+
+/* Info boxes (hours, videos) */
+.box-1 {
+    display: flex;
+    width: 85%;
+    max-width: 1100px;
+    gap: 1.5rem;
+}
+
+.hours {
+    width: 50%;
+    margin: 1rem 0;
+    padding: 1.5rem;
     flex: 1;
-    border-style: outset;
-    background-color: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+}
+
+.hours h1 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
 }
 
 .hours .hours-list {
     list-style-type: none;
+    padding-left: 0;
 }
 
-.parkInfo .activities-list{
+.hours .hours-list li {
+    padding: 4px 0;
+    font-size: 0.95rem;
+    color: var(--color-gray-600);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.hours p {
+    font-size: 0.95rem;
+    color: var(--color-gray-600);
+    line-height: 1.7;
+}
+
+.hours a {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.hours a:hover {
+    color: var(--color-accent);
+}
+
+/* Activity tags (pill badges) */
+.parkInfo .activities-list {
     margin-left: auto;
     margin-right: auto;
-    /* width: 30%; */
-    /*min-width: 500px;*/
     display: flex;
     flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    justify-content: center;
 }
 
-.parkInfo .activity{
-    background-color: rgba(255, 255, 255, 0.8);
-    margin-left: auto;
-    margin-right: auto;
-    width: 10%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-    border-style: outset;
+.parkInfo .activity {
+    background-color: var(--color-primary-pale);
+    color: var(--color-white);
+    margin: 0;
+    padding: 6px 16px;
+    border: none;
+    border-radius: var(--radius-pill);
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.85rem;
+    width: auto;
 }
 
+.parkInfo .activity p {
+    margin: 0;
+}
 
-.parkDetail{
-    padding: 10px 10px 10px 10px;
-    /*max-inline-size: 100px;*/
-   
+/* misc */
+.parkDetail {
+    padding: 10px;
     display: block;
-    position:relative;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
 }
 
-.parkInfo .post-card{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 30%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-style: solid;
+.parkInfo #activitiesDropdown {
+    color: var(--color-dark);
 }
-
-.learn-more-name{
-    font-weight: bold;
-}
-
-.park-info-link:link {
-    color: black;
-    text-decoration: none;
-}
-
-.park-info-link:visited {
-    color: black;
-    text-decoration: none;
-}
-
-.parkInfo .parks{
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 30%; */
-    border-style: dotted;
-    /*min-width: 500px;*/
-
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.parkInfo #activitiesDropdown{
-    color: black;
-}
-
-.all-parks-info-welcome {
-    position:relative;
-    padding: 3rem;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 100%, rgba(255,255,255,1) 0%);
-}
-

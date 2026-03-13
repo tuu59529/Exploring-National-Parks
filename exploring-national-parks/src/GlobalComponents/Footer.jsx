@@ -11,9 +11,9 @@ import "../Style/footer.css";
  */
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer" role="contentinfo">
       <span>
-        <p>Exploring National Parks</p>
+        <p>© Exploring National Parks</p>
         <img
           src="https://web.archive.org/web/20091027005003im_/http://it.geocities.com/aniellobarra/Img/Clip/Animated/tree.gif"
           alt=""

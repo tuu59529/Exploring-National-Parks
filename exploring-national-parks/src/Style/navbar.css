@@ -1,52 +1,92 @@
+/* =============================================
+   NAVBAR — Glassmorphism + Modern Nav
+   ============================================= */
 
-.nav-bar ul{
+.nav-bar ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: #3a4937;
+    background-color: rgba(27, 67, 50, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     top: 0;
     width: 100%;
-    position:fixed;
-    z-index: 1;
-    display:flex;
+    position: fixed;
+    z-index: 100;
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
 }
 
-.nav-bar ul li{
-    font-size: 1.5rem;
-    &:hover{
-        background-color:#a67e46
-    }
+.nav-bar ul li {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    position: relative;
 }
 
-.nav-bar ul li a{
-    display:block;
-    color:white;
+.nav-bar ul li a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
     text-align: center;
-    padding: 15px 20px;
+    padding: 16px 24px;
     text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color var(--transition-fast);
 }
 
-.nav-bar .header{
-
-    &:hover{
-        background-color: #3a4937;
-    }
+/* Animated underline on hover */
+.nav-bar ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-base);
 }
 
-.nav-bar img{
-    width: 50px;
+.nav-bar ul li:hover::after {
+    width: 70%;
+}
+
+.nav-bar ul li:hover a {
+    color: var(--color-white);
+}
+
+/* Active link accent */
+.nav-bar ul li a.active {
+    color: var(--color-accent);
+}
+
+/* Site title */
+.nav-bar .header {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.nav-bar .header::after {
+    display: none;
+}
+
+/* Logo */
+.nav-bar img {
+    width: 40px;
     height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
 
-.nav-bar .logo{
+.nav-bar .logo {
     flex-grow: 2;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    &:hover{
-        background-color: #3a4937;
-    }
+}
 
+.nav-bar .logo::after {
+    display: none;
 }

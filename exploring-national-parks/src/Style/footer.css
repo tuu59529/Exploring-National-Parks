@@ -1,19 +1,32 @@
+/* =============================================
+   FOOTER — Matching dark theme
+   ============================================= */
+
 .footer {
-    background-color: #3a4937;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: var(--color-primary-dark);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 24px 0;
     text-align: center;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 400;
     width: 100%;
+    letter-spacing: 0.3px;
+}
 
+.footer span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 
+.footer p {
+    margin: 0;
 }
 
 .footer img {
     width: 20px;
     height: 20px;
-    margin: 0px 5px;
+    margin: 0 5px;
 }

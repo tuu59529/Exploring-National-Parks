@@ -1,183 +1,293 @@
-body{
+/* =============================================
+   PARK PLANNER — Modern Schedule & Filters
+   ============================================= */
+
+body {
     overflow-x: hidden;
 }
 
 .park-plan {
-    background-image : url("../HomePage/Assets/ParkPlanningPicture.jpg");
+    background-image: url("../HomePage/Assets/ParkPlanningPicture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    opacity: 0.85;
-    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
 }
 
+/* Welcome banner */
 .park-plan-welcome {
-    position:relative;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 100%);
+    position: relative;
+    background-color: var(--color-light-overlay);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding-bottom: 1.5rem;
 }
 
 .park-plan-welcome #plan-title {
     position: relative;
-    padding: 5rem;
-    color: black;
+    padding: 4rem 2rem 0.5rem;
+    color: var(--color-dark);
     text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
 }
 
 .park-plan-welcome #plan-description {
     text-align: center;
-    /* put it in a box */
-    padding: 1rem;
-
-    padding-left: 10rem;
-    padding-right: 10rem;
-    /* background-color: rgba(19, 35, 19, 0.9); */
-    color: black;
-    font-size: 2rem;
+    padding: 0.5rem 2rem 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-gray-600);
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
+/* Filtering section */
 .planning-dropdowns {
     display: flex;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    padding: 0 2rem;
 }
 
-.plan-parks-list {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
+.plan-parks-list,
 .plan-activities-list {
+    margin: 0;
+    width: 50%;
+    background-color: var(--color-light-overlay);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.plan-parks-list h2,
+.plan-activities-list h2 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+/* Calendar */
+.plan-calendar-background {
+    padding: 1.5rem 2rem;
+}
+
+.plan-calendar {
+    background-color: var(--color-light-overlay);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 50%;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
 }
 
 .plan-calendar #date-range-title {
     text-align: center;
-}
-
-.plan-calendar {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
 }
 
 .react-calendar {
     margin-left: auto;
     margin-right: auto;
+    border: none;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-body);
 }
 
+.react-calendar .react-calendar__tile--active {
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    border-radius: var(--radius-sm);
+}
+
+.react-calendar .react-calendar__tile--hasActive {
+    background-color: var(--color-primary-light) !important;
+}
+
+.react-calendar .react-calendar__tile:hover {
+    background-color: var(--color-accent-light) !important;
+    border-radius: var(--radius-sm);
+}
+
+/* Plan Trip button */
 .plan-search-button-container {
-    width: 70%;
-    margin-left: 39%;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem 2rem;
+    width: 100%;
+    margin: 0;
 }
 
 .plan-search-button {
-    font-size: larger;
-    height: 4rem;
-    border-radius: 10px;
-    width: 30%;
-    font-family: "Times New Roman", Times, serif;
-    margin-bottom: 2%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 48px;
+    height: auto;
+    width: auto;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
 }
 
 .plan-search-button-container .plan-search-button:hover {
-    background: white;
-    font-weight: bold;
-    cursor: pointer;
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* =============================================
+   SCHEDULE — Day-by-Day Cards
+   ============================================= */
+
+#schedule-title {
+    background-color: var(--color-white);
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin: 1rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow-sm);
+}
+
+#schedule-title h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+    margin: 0;
+}
+
+.dates-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .dates-container .individual-date-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 70%;
+    background-color: var(--color-white);
+    width: 100%;
     display: flex;
-    gap: 1rem;
+    gap: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.5rem;
 }
 
+/* Date sidebar */
 .dates-container .individual-date-container .date-holder {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 20%;
-    height: 10%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-size: larger;
-}
-
-.dates-container .individual-date-container .plan-schedule-activities {
-    padding-left: 3px;
-    padding-top: 1px;
-    margin-left: 3%;
-    font-size: larger;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    width: 22%;
+    min-width: 160px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .individual-date-container .date-holder #plan-see-date {
     text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-white);
 }
 
-.individual-date-container .plan-schedule-activities .plan-learn-more-button {
-    width: 75%;
-    height: 50px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: larger;
-}
-
-.individual-date-container .plan-schedule-activities .plan-learn-more-button:hover {
-    background: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.individual-date-container .plan-schedule-activities .plan-visit-place {
-    margin-bottom: 2%;
-}
-
-.individual-date-container .plan-schedule-activities .plan-visit-people {
-    margin-bottom: 2%;
-}
-
-#schedule-title {
-    background-color: rgba(255, 255, 255);
+/* Weather */
+.weather {
+    margin: 0 auto;
+    width: 100%;
     text-align: center;
 }
 
-.plan-activity-title {
-    margin-bottom: 3%;
-    width: 100%;
-    font-weight: bold;
-}
-
-.plan-description {
-    padding-bottom:  2rem;
-    padding-right: 2rem;
-}
-
 .weather-image {
-    width: 75px;
-    height: 75px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: var(--radius-sm);
 }
 
 #weather-text {
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.weather {
-    margin-right: auto;
-    margin-left: auto;
+/* Activities schedule */
+.dates-container .individual-date-container .plan-schedule-activities {
+    padding: 1.5rem;
+    margin: 0;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.plan-schedule-activities h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin: 0.5rem 0 0.25rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--color-accent-light);
+}
+
+.plan-activity-title {
+    margin-bottom: 0.25rem;
     width: 100%;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+}
+
+.plan-description {
+    padding-bottom: 0.75rem;
+    padding-right: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-gray-600);
+    line-height: 1.5;
+}
+
+.plan-title-and-button {
+    margin-bottom: 0.5rem;
+}
+
+/* Learn More button in schedule */
+.individual-date-container .plan-schedule-activities .plan-learn-more-button {
+    width: auto;
+    height: auto;
+    padding: 8px 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.individual-date-container .plan-schedule-activities .plan-learn-more-button:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
