@@ -199,3 +199,16 @@
     filter: brightness(75%) blur(1px);
     transform: scale(1.02);
 }
+
+/* =============================================
+   TWITTER TIMELINE — Latest Tweets
+   ============================================= */
+.twitter-timeline-wrapper {
+    margin-top: 2rem;
+    max-width: 300px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    justify-content: center;
+}
