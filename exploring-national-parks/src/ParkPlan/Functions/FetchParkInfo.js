@@ -10,10 +10,12 @@
  * @returns {Promise<Object>} A promise that resolves to data about the specific park.
  * @throws {Error} If the network response is not ok or an error occurs during the process.
  */
+import config from "../../config";
 export const FetchParkInfo = async (parkCode) => {
     try {
       await parkCode;
-      var url = 'https://developer.nps.gov/api/v1/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&parkCode=' + parkCode;
+      // Builds the park details request URL from environment values.
+      var url = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&parkCode=${parkCode}`;
       console.log("url park info",url);
       const response = await fetch(url);
       if (!response.ok) {

@@ -10,6 +10,8 @@
  * @returns {Promise<Object>} A promise that resolves to the places data for the given park.
  * @throws {Error} In case of error in API fetching or in other logic
  */
+import config from '../../config';
+
 export const FetchThingsToDo = async (parkCode, activities) => {
     try {
 
@@ -20,7 +22,7 @@ export const FetchThingsToDo = async (parkCode, activities) => {
 
         if(activities.length > 0) {
             for (const activity of activities) {
-                const url =  `https://developer.nps.gov/api/v1/thingstodo?parkCode=${parkCode.value}&limit=3&q=${activity.label}&sort=-relevanceScore&api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb`;
+                const url =  `${config.npsBaseUrl}/thingstodo?parkCode=${parkCode.value}&limit=3&q=${activity.label}&sort=-relevanceScore&api_key=${config.npsApiKey}`;
                 console.log("url :" + url);
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -38,7 +40,7 @@ export const FetchThingsToDo = async (parkCode, activities) => {
             //Sort based on relevance score
             allThingsToDo.sort((a, b) => b.relevanceScore - a.relevanceScore);
         } else {
-            const url =  `https://developer.nps.gov/api/v1/thingstodo?parkCode=${parkCode.value}&limit=50&api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb`;
+            const url =  `${config.npsBaseUrl}/thingstodo?parkCode=${parkCode.value}&limit=50&api_key=${config.npsApiKey}`;
             console.log("url :" + url);
             const response = await fetch(url);
             if (!response.ok) {

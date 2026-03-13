@@ -9,9 +9,13 @@
  * @returns {Promise<Object>} - A promise that resolves to the JSON response containing the alerts.
  * @throws {Error} - If the network response is not ok or an error occurs during the fetch.
  */
+
+import config from '../../config';
+
 export const FetchAlerts = async (parkCode) =>{
     try{
-        const url = `https://developer.nps.gov/api/v1/alerts?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&parkCode=${parkCode}&q=closure`;
+        // Builds the park alerts request URL from environment values.
+        const url = `${config.npsBaseUrl}/alerts?api_key=${config.npsApiKey}&parkCode=${parkCode}&q=closure`;
         const response = await fetch(url);
         if(!response.ok){
             throw new Error('Network response was not ok');

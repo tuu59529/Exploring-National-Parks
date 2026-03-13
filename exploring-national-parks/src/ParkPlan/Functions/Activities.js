@@ -11,6 +11,7 @@
  * @throws {Error} If there is an error in fetching or parsing the data.
  */
 // Activities.js
+import config from '../../config';
 
 export const Activities = async () => {
   try {
@@ -20,9 +21,9 @@ export const Activities = async () => {
     if (activitiesData) {
       return JSON.parse(activitiesData);
     }
-
+    // Fetches park activities using environment configuration values.
     const response = await fetch(
-      'https://developer.nps.gov/api/v1/activities?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb'
+        `${config.npsBaseUrl}/activities?api_key=${config.npsApiKey}`
     );
     if (!response.ok) {
       throw new Error('Network response was not ok');

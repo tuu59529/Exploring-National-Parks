@@ -9,16 +9,18 @@
 import React, { useState, useEffect } from 'react';
 import '../../Style/parkVideos.css';
 import defaultSplash from '../../HomePage/Assets/splash-default.png';
+import config from '../../config';
 
 const ParkVideos = ({ parkCode }) => {
     const [videos, setVideos] = useState([]);
     const [currVideo, setCurrVideo] = useState(0);
-    const APIkey = 'Y7kFnm6SP5SMQhkTvwUSgyjge9buj4DbjrkuV2S0';
+    // Stores the configured NPS API key.
+    const APIkey = config.npsApiKey;
 
     const fetchVideos = async () => {
         try {
             const response = await fetch(
-                `https://developer.nps.gov/api/v1/multimedia/videos?parkCode=${parkCode}&api_key=${APIkey}`
+                `${config.npsBaseUrl}/multimedia/videos?parkCode=${parkCode}&api_key=${APIkey}`
             );
 
             if (!response.ok) {

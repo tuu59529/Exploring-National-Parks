@@ -12,10 +12,12 @@
  * @returns {Promise<Object>} A promise that resolves to the parks data.
  * @throws {Error} If the network response is not ok or an error occurs during the process.
  */
+import config from '../../config';
+
 export const FetchParks = async () => {
   try {
     const limit = 500;
-    var url = 'https://developer.nps.gov/api/v1/parks?api_key=0ilOFP8jTC2LMrwXFTullFqvHyVhBh9aHVW3OWEb&limit=' + limit;
+    var url = `${config.npsBaseUrl}/parks?api_key=${config.npsApiKey}&limit=${limit}`;
     // Check if data is in local storage
     const cachedData = localStorage.getItem('parksData');
     if (cachedData) {
