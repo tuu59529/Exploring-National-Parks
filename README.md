@@ -7,6 +7,10 @@ This is a web application intended to revolutionize how users interact with info
 The web application is intended for a wide range of people accomodating for a range of technical abilities as well.
 ## Home Page
 The home page offers an introduction to the user about the website as well as the ability to access the different features through navigation bar or button links found in the page.
+
+### r/Temple
+The homepage also includes a section with the latest posts from the r/Temple subreddit.
+
 ## Park Search
 The park search page can be used for different reasons; people who want to learn more about national parks, people who have little knowledge but want thinking about visiting a national park, or a place for people to just want to have all of their national park information consolidated into one page. The user can interact with the search bars by selecting an items through clicking or typing. The user chooses a minimum of 1 activity and optionally a state(s) to help filter their search. Depending on the user's choices, a list of parks will be shown that fit the requirements set by the user. The user can interact with the list items and have the option to learn more about them by clicking on their respective images.
 ## Park Info
