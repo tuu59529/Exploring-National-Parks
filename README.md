@@ -8,7 +8,7 @@ This is a web application intended to revolutionize how users interact with info
 ![This is a initial screenshot.](newHomepage.png)
 
 # Website Overview
-The web application is intended for a wide range of people accomodating for a range of technical abilities as well.
+The web application is intended for a wide range of people accommodating for a range of technical abilities as well.
 ## Home Page
 The home page offers an introduction to the user about the website as well as the ability to access the different features through navigation bar or button links found in the page.
 
@@ -37,8 +37,8 @@ To run on your local machine, go to the [How to Build](#how-to-build):
 ## Documentation
 To see the full JSDoc, download the entire `docs` folder found in `exploring-national-parks/docs` and open the `index.html` in a browser.
 
-### Project Board 
-[https://github.com/users/tuu59529/projects/1](https://github.com/users/tuu59529/projects/1)
+### OriginalProject Board 
+[https://github.com/orgs/cis3296f23/projects/117](https://github.com/orgs/cis3296f23/projects/117)
 
 ### Updated Project Board (2026)
 https://github.com/users/tuu59529/projects/1
