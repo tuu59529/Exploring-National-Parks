@@ -37,7 +37,7 @@ To run on your local machine, go to the [How to Build](#how-to-build):
 ## Documentation
 To see the full JSDoc, download the entire `docs` folder found in `exploring-national-parks/docs` and open the `index.html` in a browser.
 
-### OriginalProject Board 
+### Original Project Board 
 [https://github.com/orgs/cis3296f23/projects/117](https://github.com/orgs/cis3296f23/projects/117)
 
 ### Updated Project Board (2026)
