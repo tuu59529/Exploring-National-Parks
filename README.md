@@ -1,4 +1,8 @@
 # Exploring National Parks
+
+**This Project is an updated version of the original Exploring National Parks project available at [https://github.com/cis3296f23/Exploring-National-Parks](https://github.com/cis3296f23/Exploring-National-Parks).**
+
+
 This is a web application intended to revolutionize how users interact with information from the National Parks Service, with a combined goal of increasing awareness of activities offered in the parks and helping individuals plan park visits. Users can use the application to learn more about national parks, or help inform their upcoming trips by using filters to find parks that contain activities within their interests.
 
 ![This is a initial screenshot.](newHomepage.png)
@@ -26,7 +30,7 @@ This page is designed for people who have a national park in mind that they want
 
 
 # How to run
-To see the current deployment, click [Here](https://exploring-national-parks-uqb1.vercel.app/).
+To see the current deployment, click [Here](https://exploring-national-parks-plum.vercel.app/).
 
 To run on your local machine, go to the [How to Build](#how-to-build): 
 
@@ -34,9 +38,13 @@ To run on your local machine, go to the [How to Build](#how-to-build):
 To see the full JSDoc, download the entire `docs` folder found in `exploring-national-parks/docs` and open the `index.html` in a browser.
 
 ### Project Board 
-[https://github.com/orgs/cis3296f23/projects/117](https://github.com/orgs/cis3296f23/projects/117)
+[https://github.com/users/tuu59529/projects/1](https://github.com/users/tuu59529/projects/1)
+
+### Updated Project Board (2026)
+https://github.com/users/tuu59529/projects/1
+
 # How to contribute
-Follow this project board to know the latest status of the project:[https://github.com/orgs/cis3296f23/projects/117](here)
+Follow this project board to know the latest status of the project:[https://github.com/users/tuu59529/projects/1](here)
 
 ### How to build
 1. Clone this repository to your local machine
